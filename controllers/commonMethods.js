@@ -5,8 +5,8 @@ const commonMethods = {
     return res.status(200).json({success: true, data: data});
   },
 
-  errorReturn: (res)=>{
-    return res.status(200).json({success: false, Error: 'Intruder'});
+  errorReturn: (res, message)=>{
+    return res.status(200).json({success: false, Error: message});
   },
 
   serverErrorReturn: (res)=>{

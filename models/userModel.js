@@ -37,7 +37,7 @@ const userSchema = new Schema({
 		required: true,
   },
   
-	CNIC_number: {
+	CNIC: {
 		type: String,
 		required: true,
 	},

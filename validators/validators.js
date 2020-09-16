@@ -21,23 +21,37 @@ const formValidators = {
   }),
 
   /** This method puts the user schema payload to test
-   * it will be called inside middleware for users
+   * it will be called inside middleware for users signup and update
    */
-  testUser: async(data)=>{
+  testUser: async(payload)=>{
     try {
-      await formValidators.signUpAndUpdateValidators.validateAsync(data);
+      await formValidators.signUpAndUpdateValidators.validateAsync(payload);
       return true;
     } catch (e) {
+      console.log(e)
      return false;
     }
   },
 
-  /** The validator for login request payload */
+  /** The validator for login request payload  
+   * will be called inside auth middleware for login
+  */
   loginValidators: joi.object({
 
     email: joi.string().email(),
     password: joi.string().min(6)
-  })
+
+  }),
+
+  testLogin: async(payload)=>{
+    try {
+      await formValidators.loginValidators.validateAsync(payload);
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  }
 }
 
 /** 

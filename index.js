@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const formidable = require('formidable');
 
 const Router = require('./Routes/index');
+const Routers = require('./Routes/index');
 
 dotenv.config();
 const app = express();
@@ -74,6 +75,8 @@ const mid=(req, res, next)=>{
 // const  B = require('./Routes/b');
 // app.use('/a', A);
 // app.use('/b', B);
+
+app.use('/api', Routers);
 
 app.post('/', mid, function (req, res) {
 
